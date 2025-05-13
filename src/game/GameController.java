@@ -48,8 +48,7 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, GameModel model, AchievementManager aManager) {
-        if (ui == null || model == null || aManager == null)
-        {
+        if (ui == null || model == null || aManager == null) {
             throw new IllegalArgumentException();
         }
         this.ui = ui;
@@ -73,8 +72,7 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, AchievementManager aManager) {
-        if (ui == null || aManager == null)
-        {
+        if (ui == null || aManager == null) {
             throw new IllegalArgumentException();
         }
 
@@ -185,7 +183,7 @@ public class GameController {
 
     /**
      * Updates achievements with necessary values on each tick
-     * @param tick
+     * @param tick the games tick
      */
 
     public void refreshAchievements(int tick) {
@@ -228,7 +226,7 @@ public class GameController {
 
     /**
      * Sets the verbose state to the value of the verbose parameter
-     * @param verbose
+     * @param verbose the verbose state that is being set
      */
     public void setVerbose(boolean verbose) {
         this.verbose = verbose;
@@ -259,17 +257,10 @@ public class GameController {
 
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Shots Fired: ").
-                append(getStatsTracker().getShotsFired()).append("\n");
-        sb.append("Shots Hit: ").
-                append(getStatsTracker().getShotsHit()).append("\n");
-        sb.append("Enemies Destroyed: ").
-                append(getStatsTracker().
-                        getShotsHit()).
-                        append("\n");
-        sb.append("Survival Time: ").
-                append(getStatsTracker().
-                        getElapsedSeconds()).
+        sb.append("Shots Fired: ").append(getStatsTracker().getShotsFired()).append("\n");
+        sb.append("Shots Hit: ").append(getStatsTracker().getShotsHit()).append("\n");
+        sb.append("Enemies Destroyed: ").append(getStatsTracker().getShotsHit()).append("\n");
+        sb.append("Survival Time: ").append(getStatsTracker().getElapsedSeconds()).
                 append(" seconds\n");
 
 

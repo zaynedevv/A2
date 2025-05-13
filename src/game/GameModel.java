@@ -129,7 +129,7 @@ public class GameModel {
 
     /**
      * Sets the verbose state of the game
-     * @param verbose
+     * @param verbose sets the verbose state of the game
      */
     public void setVerbose(boolean verbose) {
         this.verbose = verbose;
@@ -313,7 +313,7 @@ public class GameModel {
 
     /**
      * Determines whether the player's ship is in the bounds of the window
-     * @param object
+     * @param object SpaceObject object
      * @return boolean indicating whether the player is out of bounds
      */
     public static boolean isInBounds(SpaceObject object) {
