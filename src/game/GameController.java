@@ -48,7 +48,7 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, GameModel model, AchievementManager aManager) {
-        if (ui == null || model == null || aManager == null) {throw new IllegalArgumentException()};
+        if (ui == null || model == null || aManager == null) { throw new IllegalArgumentException(); }
         this.ui = ui;
         this.model = model;
         this.startTime = System.currentTimeMillis();
@@ -70,7 +70,7 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, AchievementManager aManager) {
-        if (ui == null || aManager == null) {throw new IllegalArgumentException()};
+        if (ui == null || aManager == null) { throw new IllegalArgumentException(); }
 
         this.ui = ui;
         this.startTime = System.currentTimeMillis();
