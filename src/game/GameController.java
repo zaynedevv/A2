@@ -100,6 +100,9 @@ public class GameController {
      * @param input the user keyboard input that is pressed
      */
     public void handlePlayerInput(String input) {
+        if (this.isPaused) {
+            throw new IllegalStateException("Game is paused cannot move");
+        }
         Direction dir = null;
 
 
