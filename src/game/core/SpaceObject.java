@@ -31,4 +31,7 @@ public interface SpaceObject extends Tickable {
      * @return y coordinate of the SpaceObject.
      */
     int getY();
+
+    public String toString();
+
 }
