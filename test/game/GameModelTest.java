@@ -1,7 +1,7 @@
-package game.core;
+package game;
 
-import game.GameModel;
 import game.achievements.PlayerStatsTracker;
+import game.core.Ship;
 import game.ui.gui.GUI;
 import org.junit.Assert;
 import org.junit.Test;
