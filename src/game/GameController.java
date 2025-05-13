@@ -249,8 +249,7 @@ public class GameController {
     private void showGameOverWindow() {
 
         // Create a new window to display game over stats.
-        javax.swing.JFrame gameOverFrame = new javax.swing.
-                JFrame("Game Over - Player Stats");
+        javax.swing.JFrame gameOverFrame = new javax.swing.JFrame("Game Over - Player Stats");
         gameOverFrame.setSize(400, 300);
         gameOverFrame.setLocationRelativeTo(null); // center on screen
         gameOverFrame.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
@@ -260,11 +259,10 @@ public class GameController {
         sb.append("Shots Fired: ").append(getStatsTracker().getShotsFired()).append("\n");
         sb.append("Shots Hit: ").append(getStatsTracker().getShotsHit()).append("\n");
         sb.append("Enemies Destroyed: ").append(getStatsTracker().getShotsHit()).append("\n");
-        sb.append("Survival Time: ").append(getStatsTracker().getElapsedSeconds()).
-                append(" seconds\n");
+        sb.append("Survival Time: ").append(getStatsTracker().getElapsedSeconds()).append(" seconds\n");
 
 
-        List<Achievement> achievements= aManager.getAchievements();
+        List<Achievement> achievements = aManager.getAchievements();
         for (Achievement ach : achievements) {
             double progressPercent = ach.getProgress() * 100;
             sb.append(ach.getName())
