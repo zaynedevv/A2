@@ -101,7 +101,7 @@ public class GameController {
      */
     public void handlePlayerInput(String input) {
         if (this.isPaused) {
-            throw new IllegalStateException("Game is paused cannot move");
+            return;
         }
         Direction dir = null;
 

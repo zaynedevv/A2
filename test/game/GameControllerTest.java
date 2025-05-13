@@ -2,59 +2,76 @@ package game;
 
 import game.achievements.AchievementManager;
 import game.achievements.FileHandler;
+import game.achievements.PlayerStatsTracker;
+import game.core.Ship;
 import game.ui.gui.GUI;
+import game.ui.gui.Log;
+import game.utility.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.fail;
 
 public class GameControllerTest {
+
     @Test
     public void pauseTestW() {
-        GameController game = new GameController(new GUI(), new AchievementManager(new FileHandler()));
+        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
+        game.startGame();
+
+        Ship playerShip = model.getShip();
         game.pauseGame();
 
-        try {
-            game.handlePlayerInput("w");
-            fail("Game was paused cannot move");
-        } catch (Exception e) {
-            Assert.assertEquals("Game is paused cannot move", e.getMessage());
-        }
+        game.handlePlayerInput("w");
+
+        Assert.assertEquals(playerShip.getX(), 5);
+        Assert.assertEquals(playerShip.getY(), 10);
     }
+
     @Test
     public void pauseTestA() {
-        GameController game = new GameController(new GUI(), new AchievementManager(new FileHandler()));
+        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
+        game.startGame();
+
+        Ship playerShip = model.getShip();
         game.pauseGame();
 
-        try {
-            game.handlePlayerInput("a");
-            fail("Game was paused cannot move");
-        } catch (Exception e) {
-            Assert.assertEquals("Game is paused cannot move", e.getMessage());
-        }
+        game.handlePlayerInput("a");
+
+        Assert.assertEquals(playerShip.getX(), 5);
+        Assert.assertEquals(playerShip.getY(), 10);
     }
+
     @Test
     public void pauseTestS() {
-        GameController game = new GameController(new GUI(), new AchievementManager(new FileHandler()));
+        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
+        game.startGame();
+
+        Ship playerShip = model.getShip();
         game.pauseGame();
 
-        try {
-            game.handlePlayerInput("s");
-            fail("Game was paused cannot move");
-        } catch (Exception e) {
-            Assert.assertEquals("Game is paused cannot move", e.getMessage());
-        }
+        game.handlePlayerInput("s");
+
+        Assert.assertEquals(playerShip.getX(), 5);
+        Assert.assertEquals(playerShip.getY(), 10);
     }
+
     @Test
     public void pauseTestD() {
-        GameController game = new GameController(new GUI(), new AchievementManager(new FileHandler()));
+        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
+        game.startGame();
+
+        Ship playerShip = model.getShip();
         game.pauseGame();
 
-        try {
-            game.handlePlayerInput("d");
-            fail("Game was paused cannot move");
-        } catch (Exception e) {
-            Assert.assertEquals("Game is paused cannot move", e.getMessage());
-        }
+        game.handlePlayerInput("d");
+
+        Assert.assertEquals(playerShip.getX(), 5);
+        Assert.assertEquals(playerShip.getY(), 10);
     }
+
 }
