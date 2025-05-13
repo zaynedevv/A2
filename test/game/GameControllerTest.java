@@ -14,6 +14,10 @@ public class GameControllerTest {
                 new GameController(null, null, null));
     }
 
+    public void isOutOfBounds() {
+
+    }
+
 
 
 
