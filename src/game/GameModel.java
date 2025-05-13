@@ -116,6 +116,10 @@ public class GameModel {
         spaceObjects.removeAll(toRemove);
     }
 
+    /**
+     * Checks whether the game state should be indicated as over based on the player's health
+     * @return boolean indicating whether the game is over
+     */
     public boolean checkGameOver() {
         if (this.boat.getHealth() <= 0) {
             return true;
@@ -123,6 +127,10 @@ public class GameModel {
         return false;
     }
 
+    /**
+     * Sets the verbose state of the game
+     * @param verbose
+     */
     public void setVerbose(boolean verbose) {
         this.verbose = verbose;
     }
@@ -295,10 +303,19 @@ public class GameModel {
         spaceObjects.removeAll(toRemove); // Remove all collided objects
     }
 
+    /**
+     * Retrieves the player stats tracker object
+     * @return PlayerStatsTracker object
+     */
     public PlayerStatsTracker getPlayerStatsTracker() {
         return this.playerStatsTracker;
     }
 
+    /**
+     * Determines whether the player's ship is in the bounds of the window
+     * @param object
+     * @return boolean indicating whether the player is out of bounds
+     */
     public static boolean isInBounds(SpaceObject object) {
         if (object.getY() >= GAME_HEIGHT) {
             return true;

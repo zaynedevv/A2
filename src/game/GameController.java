@@ -48,7 +48,10 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, GameModel model, AchievementManager aManager) {
-        if (ui == null || model == null || aManager == null) { throw new IllegalArgumentException(); }
+        if (ui == null || model == null || aManager == null)
+        {
+            throw new IllegalArgumentException();
+        }
         this.ui = ui;
         this.model = model;
         this.startTime = System.currentTimeMillis();
@@ -70,7 +73,10 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, AchievementManager aManager) {
-        if (ui == null || aManager == null) { throw new IllegalArgumentException(); }
+        if (ui == null || aManager == null)
+        {
+            throw new IllegalArgumentException();
+        }
 
         this.ui = ui;
         this.startTime = System.currentTimeMillis();
@@ -168,6 +174,7 @@ public class GameController {
      * Renders the stats of the game
      *
      */
+
     public void renderGame() {
         ui.setStat("Score", String.valueOf(model.getShip().getScore()));
         ui.setStat("Health", String.valueOf(model.getShip().getHealth()));
@@ -211,10 +218,18 @@ public class GameController {
         }
     }
 
+    /**
+     * Retrieves the player stats tracker object from the game model
+     * @return playerStatsTracker object
+     */
     public PlayerStatsTracker getStatsTracker() {
         return model.getPlayerStatsTracker();
     }
 
+    /**
+     * Sets the verbose state to the value of the verbose parameter
+     * @param verbose
+     */
     public void setVerbose(boolean verbose) {
         this.verbose = verbose;
         model.setVerbose(verbose);
@@ -236,17 +251,26 @@ public class GameController {
     private void showGameOverWindow() {
 
         // Create a new window to display game over stats.
-        javax.swing.JFrame gameOverFrame = new javax.swing.JFrame("Game Over - Player Stats");
+        javax.swing.JFrame gameOverFrame = new javax.swing.
+                JFrame("Game Over - Player Stats");
         gameOverFrame.setSize(400, 300);
         gameOverFrame.setLocationRelativeTo(null); // center on screen
         gameOverFrame.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
 
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Shots Fired: ").append(getStatsTracker().getShotsFired()).append("\n");
-        sb.append("Shots Hit: ").append(getStatsTracker().getShotsHit()).append("\n");
-        sb.append("Enemies Destroyed: ").append(getStatsTracker().getShotsHit()).append("\n");
-        sb.append("Survival Time: ").append(getStatsTracker().getElapsedSeconds()).append(" seconds\n");
+        sb.append("Shots Fired: ").
+                append(getStatsTracker().getShotsFired()).append("\n");
+        sb.append("Shots Hit: ").
+                append(getStatsTracker().getShotsHit()).append("\n");
+        sb.append("Enemies Destroyed: ").
+                append(getStatsTracker().
+                        getShotsHit()).
+                        append("\n");
+        sb.append("Survival Time: ").
+                append(getStatsTracker().
+                        getElapsedSeconds()).
+                append(" seconds\n");
 
 
         List<Achievement> achievements= aManager.getAchievements();
