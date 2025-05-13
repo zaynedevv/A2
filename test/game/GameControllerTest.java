@@ -1,36 +1,22 @@
 package game;
 
+import game.ui.DummyUI;
+
 import game.achievements.AchievementManager;
 import game.achievements.FileHandler;
 import game.achievements.PlayerStatsTracker;
 import game.core.Ship;
-import game.ui.gui.GUI;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.fail;
 
 public class GameControllerTest {
 
-    @Test
-    public void pauseTestW() {
-        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
-        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
-        game.startGame();
-
-        Ship playerShip = model.getShip();
-        game.pauseGame();
-
-        game.handlePlayerInput("w");
-
-        Assert.assertEquals(playerShip.getX(), 5);
-        Assert.assertEquals(playerShip.getY(), 10);
-    }
 
     @Test
     public void pauseTestA() {
-        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
-        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
+        GameModel model = new GameModel(new DummyUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new DummyUI(), model, new AchievementManager(new FileHandler()));
         game.startGame();
 
         Ship playerShip = model.getShip();
@@ -44,8 +30,8 @@ public class GameControllerTest {
 
     @Test
     public void pauseTestS() {
-        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
-        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
+        GameModel model = new GameModel(new DummyUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new DummyUI(), model, new AchievementManager(new FileHandler()));
         game.startGame();
 
         Ship playerShip = model.getShip();
@@ -59,14 +45,29 @@ public class GameControllerTest {
 
     @Test
     public void pauseTestD() {
-        GameModel model = new GameModel(new GUI()::log, new PlayerStatsTracker());
-        GameController game = new GameController(new GUI(), model, new AchievementManager(new FileHandler()));
+        GameModel model = new GameModel(new DummyUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new DummyUI(), model, new AchievementManager(new FileHandler()));
         game.startGame();
 
         Ship playerShip = model.getShip();
         game.pauseGame();
 
         game.handlePlayerInput("d");
+
+        Assert.assertEquals(playerShip.getX(), 5);
+        Assert.assertEquals(playerShip.getY(), 10);
+    }
+
+    @Test
+    public void pauseTestW() {
+        GameModel model = new GameModel(new DummyUI()::log, new PlayerStatsTracker());
+        GameController game = new GameController(new DummyUI(), model, new AchievementManager(new FileHandler()));
+        game.startGame();
+
+        Ship playerShip = model.getShip();
+        game.pauseGame();
+
+        game.handlePlayerInput("w");
 
         Assert.assertEquals(playerShip.getX(), 5);
         Assert.assertEquals(playerShip.getY(), 10);
