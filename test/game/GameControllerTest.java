@@ -5,8 +5,6 @@ import game.achievements.FileHandler;
 import game.achievements.PlayerStatsTracker;
 import game.core.Ship;
 import game.ui.gui.GUI;
-import game.ui.gui.Log;
-import game.utility.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 

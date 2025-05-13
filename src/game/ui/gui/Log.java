@@ -6,7 +6,7 @@ import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Log extends JPanel {
+class Log extends JPanel {
     private List<String> messages = new ArrayList<>();
     private int pixelWidth = 0;
     private int pixelHeight = 0;
