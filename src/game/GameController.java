@@ -22,7 +22,7 @@ public class GameController {
     private final GameModel model;
     private final AchievementManager aManager;
     private boolean isPaused;
-    public boolean verbose;
+    private boolean verbose;
 
 
     /**
@@ -48,7 +48,7 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, GameModel model, AchievementManager aManager) {
-        if (ui == null || model == null || aManager == null) throw new IllegalArgumentException();
+        if (ui == null || model == null || aManager == null) {throw new IllegalArgumentException()};
         this.ui = ui;
         this.model = model;
         this.startTime = System.currentTimeMillis();
@@ -70,7 +70,7 @@ public class GameController {
      * @provided
      */
     public GameController(UI ui, AchievementManager aManager) {
-        if (ui == null || aManager == null) throw new IllegalArgumentException();
+        if (ui == null || aManager == null) {throw new IllegalArgumentException()};
 
         this.ui = ui;
         this.startTime = System.currentTimeMillis();
@@ -164,15 +164,22 @@ public class GameController {
         }
     }
 
-
+    /**
+     * Renders the stats of the game
+     *
+     */
     public void renderGame() {
         ui.setStat("Score", String.valueOf(model.getShip().getScore()));
         ui.setStat("Health", String.valueOf(model.getShip().getHealth()));
         ui.setStat("Level", String.valueOf(model.getLevel()));
         ui.setStat("Time Survived", (System.currentTimeMillis() - startTime) / 1000 + " seconds");
-
         ui.render(model.getSpaceObjects());
     }
+
+    /**
+     * Updates achievements with necessary values on each tick
+     * @param tick
+     */
 
     public void refreshAchievements(int tick) {
         // Survivor Achievement: Mastered at 120 seconds

@@ -107,7 +107,7 @@ public class GUI implements UI {
     /**
      * Displays the game welcome message and instructions.
      */
-    private void logWelcome(){
+    private void logWelcome() {
         log("=====================================");
         log("       Welcome to Space Shooter!     ");
         log("=====================================");
@@ -215,7 +215,7 @@ public class GUI implements UI {
 
     @Override
     public void setAchievementProgressStat(String achievementName, double progressPercentage) {
-        double progress = 5*(Math.floor(Math.abs(progressPercentage * 100/5)));
+        double progress = 5 * (Math.floor(Math.abs(progressPercentage * 100 / 5)));
         progress = progressPercentage > 0.99 ? 100 : progress;
         setStat(achievementName + " Progress", String.format("%.0f%%", progress));
     }

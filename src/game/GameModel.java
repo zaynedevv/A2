@@ -32,8 +32,8 @@ public class GameModel {
     private int lvl; // The current game level
     private int spawnRate; // The current game spawn rate
     private Logger wrter; // The Logger reference used for logging.
-    public PlayerStatsTracker playerStatsTracker;
-    public boolean verbose;
+    private PlayerStatsTracker playerStatsTracker;
+    private boolean verbose;
 
     /**
      * Models a game, storing and modifying data relevant to the game.<br>
@@ -319,7 +319,9 @@ public class GameModel {
      * @param seed to be set for the Random instance
      * @provided
      */
+
     public void setRandomSeed(int seed) {
         this.random.setSeed(seed);
     }
+
 }
