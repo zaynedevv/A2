@@ -10,7 +10,7 @@ public class ObjectWithPositionTest {
 
         String objectString = object.toString();
 
-        Assert.assertEquals("Bullet(0, 0)", objectString);
+        Assert.assertEquals("Bullet(" + object.getX() + ", " + object.getY() + ")", objectString);
     }
 
     @Test
@@ -19,7 +19,7 @@ public class ObjectWithPositionTest {
 
         String objectString = object.toString();
 
-        Assert.assertEquals("Asteroid(0, 0)", objectString);
+        Assert.assertEquals("Asteroid(" + object.getX() + ", " + object.getY() + ")", objectString);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class ObjectWithPositionTest {
 
         String objectString = object.toString();
 
-        Assert.assertEquals("Ship(0, 0)", objectString);
+        Assert.assertEquals("Ship(" + object.getX() + ", " + object.getY() + ")", objectString);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class ObjectWithPositionTest {
 
         String objectString = object.toString();
 
-        Assert.assertEquals("Enemy(0, 0)", objectString);
+        Assert.assertEquals("Enemy(" + object.getX() + ", " + object.getY() + ")", objectString);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class ObjectWithPositionTest {
 
         String objectString = object.toString();
 
-        Assert.assertEquals("HealthPowerUp(0, 0)", objectString);
+        Assert.assertEquals("HealthPowerUp(" + object.getX() + ", " + object.getY() + ")", objectString);
     }
 
     @Test
@@ -55,6 +55,6 @@ public class ObjectWithPositionTest {
 
         String objectString = object.toString();
 
-        Assert.assertEquals("ShieldPowerUp(0, 0)", objectString);
+        Assert.assertEquals("ShieldPowerUp(" + object.getX() + ", " + object.getY() + ")", objectString);
     }
 }

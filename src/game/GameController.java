@@ -100,37 +100,39 @@ public class GameController {
      * @param input the user keyboard input that is pressed
      */
     public void handlePlayerInput(String input) {
-        if (this.isPaused) {
+        input = input.toLowerCase();
+
+        if (input.equals("p")) {
+            this.pauseGame();
             return;
         }
+
+        if (this.isPaused) {
+            throw new IllegalStateException("Game is paused cannot move");
+        }
+
         Direction dir = null;
 
-
-        if (input.toLowerCase().equals("w")) {
-            dir = Direction.UP;
-        } else if (input.toLowerCase().equals("a")) {
-            dir = Direction.LEFT;
-        } else if (input.toLowerCase().equals("s")) {
-            dir = Direction.DOWN;
-        } else if (input.toLowerCase().equals("d")) {
-            dir = Direction.RIGHT;
-        } else if (input.toLowerCase().equals("f")) {
-            model.fireBullet();
-        } else if (input.toLowerCase().equals("p")) {
-            this.pauseGame();
-        } else {
-            ui.log("Invalid input. Use W, A, S, D, F, or P.");
+        switch (input) {
+            case "w": dir = Direction.UP; break;
+            case "a": dir = Direction.LEFT; break;
+            case "s": dir = Direction.DOWN; break;
+            case "d": dir = Direction.RIGHT; break;
+            case "f":
+                model.fireBullet();
+                return;
+            default:
+                ui.log("Invalid input. Use W, A, S, D, F, or P.");
+                return;
         }
+
         try {
-            if (dir != null) {
-                model.getShip().move(dir);
-            }
+            model.getShip().move(dir);
+            ui.log("Core.Ship moved to (" + model.getShip().getX()
+                    + ", " + model.getShip().getY() + ")");
         } catch (BoundaryExceededException e) {
             System.out.println(e.getMessage());
         }
-
-        ui.log("Core.Ship moved to (" + model.getShip().getX()
-                + ", " + model.getShip().getY() + ")");
     }
 
     /** Pauses all elements in the game */
