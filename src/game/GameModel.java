@@ -56,7 +56,6 @@ public class GameModel {
         this.boat = new Ship();
         this.wrter = wrter;
         this.playerStatsTracker = playerStatsTracker;
-        this.addObject(boat);
     }
 
     /**
