@@ -298,17 +298,23 @@ public class GameModel {
                     case Asteroid asteroid -> {
                         ship.takeDamage(ASTEROID_DAMAGE);
                         if (verbose) {
-                            logger.log("Hit by " +
-                                    obj.render() + "! " +
-                                    "Health reduced by " + ASTEROID_DAMAGE + ".");
+                            logger.log("Hit by "
+                                    + obj.render()
+                                    + "! Health reduced by "
+                                    + ASTEROID_DAMAGE
+                                    + "."
+                            );
                         }
                     }
                     case Enemy enemy -> {
                         ship.takeDamage(ENEMY_DAMAGE);
                         if (verbose) {
-                            logger.log("Hit by " +
-                                    obj.render() + "! " +
-                                    "Health reduced by " + ENEMY_DAMAGE + ".");
+                            logger.log("Hit by "
+                                    + obj.render()
+                                    + "! Health reduced by "
+                                    + ENEMY_DAMAGE
+                                    + "."
+                            );
                         }
                     }
                     default -> {

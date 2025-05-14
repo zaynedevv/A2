@@ -8,16 +8,13 @@ import java.util.Map;
 /**
  * Achievement Manager class is responsible for managing all achievements
  * - Adding achievements
- * - Retreiving achievements
+ * - Retrieving achievements
  * - Logging achievements
  * - Updating achievements
  */
 public class AchievementManager {
 
-    /// Maps all achievement names to their corresponding values
     private Map<String, Achievement> achievementMap;
-
-    /// The achievement file
     private AchievementFile achievementFile;
 
     /**
